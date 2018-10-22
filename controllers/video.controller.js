@@ -20,6 +20,7 @@ exports.video_details=function(req,res){
     });
 };
 exports.all_videos = function(req,res){
+    console.log("Peticion GET a /videos")
     Video.find({},'_id', function(err,video){
         if(err)return err;
 	console.log(video);

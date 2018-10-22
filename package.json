@@ -1,5 +1,5 @@
 {
-  "name": "CazadoresDeEstrellas",
+  "name": "cazadores_de_estrellas",
   "version": "1.0.0",
   "description": "Interfaz REST para la base de datos del proyecto Cazadores de Estrellas",
   "main": "app.js",
@@ -11,6 +11,11 @@
   "dependencies": {
     "body-parser": "^1.18.3",
     "express": "^4.16.3",
+    "getenv": "^0.7.0",
     "mongoose": "^5.3.1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "."
   }
 }
