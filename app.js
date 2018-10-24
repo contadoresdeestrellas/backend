@@ -2,6 +2,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const https = require('https');
+const http = require('http');
 const fs = require('fs');
 var getenv = require('getenv');
 
@@ -34,13 +35,20 @@ app.use('/videos',video);
 app.use('/meteors',meteor);
 app.use('/challenge',challenge);
 
+
+// Crear servidor http
+http.createServer(app).listen(80);
+
+try{
 var ssl_options = {
-  key: fs.readFileSync('cert/new.cert.key'),
+  key: fs.readFileSync('cert/_new.cert.key'),
   cert: fs.readFileSync('cert/new.cert.cert')
 };
 
-https.createServer(ssl_options,app).listen(433);
-
+https.createServer(ssl_options,app).listen(443);
+}catch(e){
+console.log("No se ha podido iniciar el servidor https por la siguiente razon: " + e.message);
+}
 //var port =80;
 
 // app.listen(port,'0.0.0.0',()=>{
